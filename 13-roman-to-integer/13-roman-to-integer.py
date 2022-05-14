@@ -1,7 +1,7 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        s = s.replace('IV', ' 4 ')
-        s = s.replace('IX', ' 9 ')
+        s = s.replace('IV', '4')
+        s = s.replace('IX', '9')
         s = s.replace('XL', ' 40 ')
         s = s.replace('XC', ' 90 ')
         s = s.replace('CD', ' 400 ')
