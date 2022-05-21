@@ -1,16 +1,11 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
-        s = s.replace('IV', '4')
-        s = s.replace('IX', '9')
-        s = s.replace('XL', ' 40 ')
-        s = s.replace('XC', ' 90 ')
-        s = s.replace('CD', ' 400 ')
-        s = s.replace('CM', ' 900 ')
-        s = s.replace('I', ' 1 ')
-        s = s.replace('V', ' 5 ')
-        s = s.replace('X', ' 10 ')
-        s = s.replace('L', ' 50 ')
-        s = s.replace('C', ' 100 ')
-        s = s.replace('D', ' 500 ')
-        s = s.replace('M', ' 1000 ')
-        return sum([int(x) for x in s.split()])
+        roman_map = {
+            'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900,
+            'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
+        }
+
+        for key, value in roman_map.items():
+            s = s.replace(key, f'+{value}')
+            print(s)
+        return eval(s)
