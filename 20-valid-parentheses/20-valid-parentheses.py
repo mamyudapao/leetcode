@@ -1,15 +1,14 @@
 class Solution:
   def isValid(self, s: str) -> bool:
-    mpp = {')': '(', '}': '{', ']': '['}
-    stk = []
-    for e in s:
-      if e in mpp:
-        if stk and stk[-1] == mpp[e]:
-          stk.pop()
-        else:
-          return False
+    hashMap = {')': '(', '}':'{', ']': '[' }
+    stack = []
+    for i in range(len(s)):
+      if s[i] in ['[', '{', '(']:
+        stack.append(s[i])
       else:
-        stk.append(e)
-    if(len(stk) > 0):
-      return False
-    return True
+        if len(stack) == 0: return False
+        if hashMap[s[i]] != stack.pop():
+            return False
+    if len(stack) == 0:
+        return True
+    return False
