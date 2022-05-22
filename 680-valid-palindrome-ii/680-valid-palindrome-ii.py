@@ -1,18 +1,18 @@
 class Solution:
   def validPalindrome(self, s):
-    def check_palindrome(s, pointer1, pointer2):
-      while pointer1 < pointer2:
-        if s[pointer1] == s[pointer2]:
-          pointer1 += 1
-          pointer2 -= 1
-        else:
+    def isPalindrome(s, left, right):
+      while left < right:
+        if s[left] != s[right]:
           return False
+        left += 1
+        right -= 1
       return True
-    pointer1 = 0
-    pointer2 = len(s) -1
-    while pointer1 < pointer2:
-      if s[pointer1] != s[pointer2]:
-        return check_palindrome(s, pointer1 + 1, pointer2) or check_palindrome(s, pointer1, pointer2 - 1)
-      pointer1 += 1
-      pointer2 -= 1
+    left = 0
+    right = len(s) - 1
+    while left < right:
+      # だめだった場合の処理
+      if s[left] != s[right]:
+        return isPalindrome(s, left+1, right) or isPalindrome(s, left, right-1)
+      left += 1
+      right -= 1
     return True
