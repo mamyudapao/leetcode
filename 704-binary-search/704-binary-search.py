@@ -1,7 +1,13 @@
-
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        if target in nums:
-          return nums.index(target)
-        else:
-          return -1
+  def search(self, nums: List[int], target: int) -> int:
+    left = 0
+    right = len(nums) - 1
+    while left <= right:
+      index = (left + right)//2
+      if nums[index] == target:
+        return index
+      if nums[index] > target:
+        right = index-1
+      else:
+        left = index+1
+    return -1
