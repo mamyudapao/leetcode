@@ -1,11 +1,22 @@
-class Solution:
-    def romanToInt(self, s: str) -> int:
-        roman_map = {
-            'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900,
-            'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000
-        }
+values = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
+}
 
-        for key, value in roman_map.items():
-            s = s.replace(key, f'+{value}')
-            print(s)
-        return eval(s)
+class Solution:
+  def romanToInt(self, s: str):
+    total = 0
+    i = 0
+    while i < len(s):
+      if i + 1 < len(s) and values[s[i]] < values[s[i+1]]:
+        total +=  values[s[i+1]] - values[s[i]]
+        i += 2
+      else:
+        total += values[s[i]]
+        i += 1
+    return total
