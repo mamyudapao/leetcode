@@ -1,10 +1,10 @@
 class Solution:
-  def longestCommonPrefix(self, strs):
-      prefix=[]
-      num = len(strs)
-      for x in zip(*strs):
-        if len(set(x)) == 1:
-          prefix.append(x[0])
-        else:
-          break
-      return "".join(prefix)
+    def longestCommonPrefix(self, strs):
+        res = ""
+        
+        for i in range(len(strs[0])):
+            for s in strs:
+                if i == len(s) or s[i] != strs[0][i]:
+                    return res
+            res += strs[0][i]
+        return res
