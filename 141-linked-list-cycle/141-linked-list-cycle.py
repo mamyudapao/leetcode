@@ -1,12 +1,12 @@
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
-        if head is None:
-            return False
-        slow = head
-        fast = head.next
-        while slow != fast:
-            if fast is None or fast.next is None:
-                return False
-            slow = slow.next
-            fast = fast.next.next
-        return True
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+      if head is None:
+        return False
+      low_speed = head
+      high_speed = head.next
+      while high_speed != low_speed:
+        if high_speed is None or high_speed.next is None:
+          return False
+        low_speed = low_speed.next
+        high_speed = high_speed.next.next
+      return True
