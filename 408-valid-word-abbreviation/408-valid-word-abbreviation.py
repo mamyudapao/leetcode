@@ -5,7 +5,8 @@ class Solution(object):
             if c.isdigit():
                 if digit == 0 and c == '0':
                     return False
-                digit = digit * 10 + int(c)
+                digit *= 10
+                digit += int(c)
             else:
                 if digit:
                     i += digit
