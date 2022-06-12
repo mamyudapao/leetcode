@@ -7,8 +7,6 @@ class MovingAverage:
     def next(self, val: int) -> float:
       self.list.append(val)
       temp_sum = 0
-      if self.size == 1:
-        return self.list[len(self.list)-1]
       if len(self.list) < self.size:
         for i in range(len(self.list)):
           temp_sum += self.list[i]
