@@ -6,7 +6,7 @@ class Solution:
         row = [None for _ in range(row_num+1)]
         row[0], row[-1] = 1, 1
         
-        for j in range(1, len(row)-1):
-          row[j] = triangle[row_num -1][j-1] + triangle[row_num-1][j]
+        for i in range(1, len(row) -1):
+          row[i] = triangle[row_num - 1][i-1] + triangle[row_num - 1][i]
         triangle.append(row)
       return triangle
