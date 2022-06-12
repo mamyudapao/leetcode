@@ -1,8 +1,7 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-      vals = []
-      current_node = head
-      while current_node:
-        vals.append(current_node.val)
-        current_node = current_node.next
-      return vals == vals[::-1]
+      val_list = []
+      while head:
+        val_list.append(head.val)
+        head = head.next
+      return val_list == val_list[::-1]
